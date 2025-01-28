@@ -1,0 +1,38 @@
+<div
+  *ngIf="countries.length === 0; else table"
+  class="alert alert-dismissible alert-warning">
+  <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> -->
+  <h4 class="alert-heading">Warning!</h4>
+  <p class="mb-0"> There are not countries to show </p>
+</div>
+
+<ng-template #table>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Icon</th>
+      <th scope="col">Flag</th>
+      <th scope="col">Country Name</th>
+      <th scope="col">Name</th>
+      <th scope="col">Population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let country of countries; let i = index; let isEven = even;"
+          [ngClass]="{
+            'table-info': isEven,
+          }"  class="table">
+      <th scope="row"> {{ i + 1 }} </th>
+      <td> {{ country.flag }} </td>
+      <td> <img [src]="country.flags.svg" [alt]="country.name.common"> </td>
+      <td> {{ country.name.common }} </td>
+      <td> {{ country.capital }} </td>
+      <td> {{ country.population | number }} </td>
+      <td> <a [routerLink]="['/countries/by', country.cca3]" class="alert-link">See more</a> </td>
+
+    </tr>
+  </tbody>
+</table>
+</ng-template>

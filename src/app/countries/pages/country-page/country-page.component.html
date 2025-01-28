@@ -1,0 +1,58 @@
+
+<ng-template #loading>
+  <div class="alert alert-dismissible alert-info text-center">
+    <h4 class="alert-heading">Wait, please</h4>
+    <!-- <p class="mb-0">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p> -->
+  </div>
+</ng-template>
+
+<div *ngIf="country; else loading;">
+  <div class="row">
+    <div class="col-12">
+      <h2> Country: <strong> {{ country.name.common }} </strong> </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3> Flag </h3>
+      <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail" >
+    </div>
+    <div class="col">
+      <h3> Information </h3>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <strong> Population: </strong>
+          <span class="badge bg-primary rounded-pill"> {{ country.population | number }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <strong> Code: </strong>
+          <span class="badge bg-primary rounded-pill"> {{ country.cca3 }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h3> Translations </h3>
+      <div class="d-flex flex-wrap">
+
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['ara'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['bre'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['ces'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['cym'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['deu'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['est'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['fin'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['ita'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['kor'].common }} </span>
+        <span class="badge bg-primary rounded-pill m-1"> {{ country.translations['per'].common }} </span>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
