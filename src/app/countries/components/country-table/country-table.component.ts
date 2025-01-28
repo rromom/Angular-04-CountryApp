@@ -19,4 +19,7 @@ export class CountryTableComponent {
   @Input()
   public countries: Country[] = [];
 
+  @Input()
+  public message: string = '';
+
 }

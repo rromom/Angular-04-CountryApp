@@ -1,4 +1,12 @@
 <h1> By Country </h1>
-<shared-search placeholder="Search by Country" (onValue)="searchByCountry($event)"  ></shared-search>
+<!-- (onValue)="searchByCountry($event)"   -->
+<shared-search
+  placeholder="Search by Country"
+  (onDebounce)="searchByCountry($event)"
+  [initialValue]="initialValue"
+></shared-search>
 <hr>
-<countries-country-table [countries]="countries"></countries-country-table>
+
+<shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
+<countries-country-table [countries]="countries" message="There are not countries to show"></countries-country-table>

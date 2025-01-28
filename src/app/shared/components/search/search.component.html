@@ -1,8 +1,10 @@
 <div class="d-flex">
+  <!-- (keyup.enter)="emitValue( txtInput.value )" -->
   <input
     class="form-control me-sm-2"
     type="search"
     [placeholder]="placeholder"
-    (keyup.enter)="emitValue( txtInput.value )"
+    [value]="initialValue"
+    (keyup)="deBouncerEmit(txtInput.value)"
     #txtInput>
 </div>
